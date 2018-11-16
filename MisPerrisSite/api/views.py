@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from rest_framework.response import responses
+from rest_framework.response import Response
 from .models import Mascota
 from .serializers import MascotaSerializer
 
@@ -12,4 +12,5 @@ class MascotaView(APIView):
     def get(self, request):
         misMascotas = Mascota.objects.all()
         miSerializer = MascotaSerializer(misMascotas, many=True)
-        return responses(miSerializer.data)
+        return Response(miSerializer.data)
+
