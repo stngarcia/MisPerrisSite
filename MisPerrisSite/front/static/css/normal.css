@@ -20,13 +20,13 @@
 ****/
 
 .imagen-lista {
-  width: 75px;
-  max-width: 75px;
-  height: 75px;
-  max-height: 75px;
-  border: 1px solid black;
-  border-radius: 2px;
-  box-shadow: inset 0 0 1em gray;
+    width: 75px;
+    max-width: 75px;
+    height: 75px;
+    max-height: 75px;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: inset 0 0 1em gray;
 }
 
 
@@ -36,10 +36,22 @@
 ****/
 
 h1 {
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  background-color: silver
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: silver
+}
+
+
+/****
+* Estilos para los enlaces fuera de un formulario.
+* ----------------------------------------------
+****/
+
+.contenedor-formulario a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
 }
 
 
@@ -49,8 +61,8 @@ h1 {
 ****/
 
 .contenedor-formulario {
-  margin: auto;
-  padding: 10px;
+    margin: auto;
+    padding: 10px;
 }
 
 
@@ -60,17 +72,17 @@ h1 {
 ****/
 
 form {
-  width: 95%;
-  margin: auto;
-  padding: 10px;
-  border: 1px solid black;
-  box-shadow: inset 0 0 1em gray;
-  border-radius: 2px;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  background-color: #6dccaa;
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid black;
+    box-shadow: inset 0 0 1em gray;
+    border-radius: 2px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #6dccaa;
 }
 
 
@@ -80,9 +92,9 @@ form {
 ****/
 
 form a {
-  text-align: right;
-  text-decoration: none;
-  color: red;
+    text-align: right;
+    text-decoration: none;
+    color: red;
 }
 
 
@@ -92,8 +104,8 @@ form a {
 ****/
 
 form a:hover {
-  color: white;
-  background-color: red;
+    color: white;
+    background-color: red;
 }
 
 
@@ -103,22 +115,22 @@ form a:hover {
 ****/
 
 .contenedor-campo {
-  width: 100%;
-  max-width: 100%;
-  margin: 5px;
-  padding: 10px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  border: 1px solid #58b494;
-  border-radius: 2px;
-  background-color: #6dccaa;
+    width: 100%;
+    max-width: 100%;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 1px solid #58b494;
+    border-radius: 2px;
+    background-color: #6dccaa;
 }
 
 form label {
-  width: 30%;
-  margin: 5px;
+    width: 30%;
+    margin: 5px;
 }
 
 
@@ -127,19 +139,20 @@ form label {
 * ------------------------------
 ****/
 
-form button {
-  width: 25%;
-  margin: auto;
-  padding: 10px;
-  background-color: #58b494;
-  border: 1px solid black;
-  border-radius: 2px;
+form button,
+.contenedor-formulario a {
+    width: 25%;
+    margin: auto;
+    padding: 10px;
+    background-color: #58b494;
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 form input,
 form select {
-  width: 60%;
-  border-radius: 2px;
+    width: 60%;
+    border-radius: 2px;
 }
 
 
@@ -150,7 +163,7 @@ form select {
 
 form input:invalid,
 form select:invalid {
-  border: 1px solid red
+    border: 1px solid red
 }
 
 
@@ -161,18 +174,18 @@ form select:invalid {
 
 form input:valid,
 form select:valid {
-  border: 1px solid green
+    border: 1px solid green
 }
 
 form input:focus,
 form select:focus {
-  border: 1px solid black;
-  box-shadow: 5px 5px 5px 0px gray;
-  background-color: lime;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px 0px gray;
+    background-color: lime;
 }
 
 form span {
-  width: 100%;
+    width: 100%;
 }
 
 
@@ -182,8 +195,8 @@ form span {
 ****/
 
 hr {
-  width: 50%;
-  margin: auto;
+    width: 50%;
+    margin: auto;
 }
 
 
@@ -197,8 +210,8 @@ hr {
 .contenedor-datos-correctos p,
 .contenedor-datos-correctos img,
 .contenedor-datos-correctos a {
-  margin: auto;
-  padding: 10px;
+    margin: auto;
+    padding: 10px;
 }
 
 
@@ -208,9 +221,9 @@ hr {
 ****/
 
 .contenedor-datos-correctos {
-  width: 100%;
-  border: 1px solid black;
-  box-shadow: 5px 5px 5px 0px gray;
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px 0px gray;
 }
 
 
@@ -220,13 +233,13 @@ hr {
 ****/
 
 .contenedor-datos-correctos a {
-  width: 30%;
-  text-decoration: none;
-  text-align: center;
-  color: black;
-  background-color: silver;
-  border: 1px solid black;
-  border-radius: 2px;
+    width: 30%;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    background-color: silver;
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 
@@ -236,8 +249,8 @@ hr {
 ****/
 
 .contenedor-datos-correctos p {
-  margin: 15px;
-  padding: 5px;
+    margin: 15px;
+    padding: 5px;
 }
 
 
@@ -247,13 +260,13 @@ hr {
 ****/
 
 .contenedor-datos-correctos img {
-  width: 25%;
-  max-width: 25%;
-  height: 25%;
-  max-height: 25%;
-  border: 1px solid black;
-  border-radius: 2px;
-  box-shadow: inset 0 0 1em gray;
+    width: 25%;
+    max-width: 25%;
+    height: 25%;
+    max-height: 25%;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: inset 0 0 1em gray;
 }
 
 
@@ -266,8 +279,8 @@ hr {
 .contenedor-ver-informacion h1,
 .contenedor-contenido-info,
 .contenedor-ver-informacion a {
-  margin: auto;
-  padding: 10px;
+    margin: auto;
+    padding: 10px;
 }
 
 
@@ -277,9 +290,9 @@ hr {
 ****/
 
 .contenedor-ver-informacion {
-  width: 100%;
-  border: 1px solid black;
-  box-shadow: 5px 5px 5px 0px gray;
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px 0px gray;
 }
 
 
@@ -289,9 +302,9 @@ hr {
 ****/
 
 .contenedor-ver-informacion h1 {
-  width: 100%;
-  text-align: center;
-  background-color: silver
+    width: 100%;
+    text-align: center;
+    background-color: silver
 }
 
 
@@ -301,13 +314,13 @@ hr {
 ****/
 
 .contenedor-ver-informacion a {
-  width: 30%;
-  text-decoration: none;
-  text-align: center;
-  color: black;
-  background-color: silver;
-  border: 1px solid black;
-  border-radius: 2px;
+    width: 30%;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    background-color: silver;
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 
@@ -316,12 +329,12 @@ hr {
 * -----------------------------------------------
 ****/
 
-.datos-mascota  {
-  width: 100%;
-  max-width: 100%;
-  text-align: center;
-  margin: 15px;
-  padding: 5px;
+.datos-mascota {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin: 15px;
+    padding: 5px;
 }
 
 
@@ -331,14 +344,14 @@ hr {
 ****/
 
 .contenedor-ver-informacion img {
-  margin: auto;
-  width: 25%;
-  max-width: 25%;
-  height: 25%;
-  max-height: 25%;
-  border: 1px solid black;
-  border-radius: 2px;
-  box-shadow: inset 0 0 1em gray;
+    margin: auto;
+    width: 25%;
+    max-width: 25%;
+    height: 25%;
+    max-height: 25%;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: inset 0 0 1em gray;
 }
 
 
@@ -348,12 +361,12 @@ hr {
 ****/
 
 .enlace-agregar {
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 2px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 
@@ -363,18 +376,18 @@ hr {
 ****/
 
 .contenedor-fila-lista {
-  width: 100%;
-  max-width: 100%;
-  margin: 15px;
-  padding: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    margin: 15px;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .contenedor-fila-lista:hover {
-  background-color: gainsboro;
+    background-color: gainsboro;
 }
 
 
@@ -384,8 +397,8 @@ hr {
 ****/
 
 .contenedor-fila-lista p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -395,14 +408,14 @@ hr {
 ****/
 
 .contenedor-item-lista {
-  width: 100%;
-  max-width: 100%;
-  margin: 0px;
-  padding: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 
@@ -412,14 +425,14 @@ hr {
 ****/
 
 .contenedor-item-lista img {
-  width: 50px;
-  max-width: 50px;
-  height: 75px;
-  max-height: 75px;
-  border: 1px solid black;
-  border-radius: 2px;
-  box-shadow: inset 0 0 1em gray;
-  margin: 0;
+    width: 50px;
+    max-width: 50px;
+    height: 75px;
+    max-height: 75px;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: inset 0 0 1em gray;
+    margin: 0;
 }
 
 
@@ -429,10 +442,10 @@ hr {
 ****/
 
 .contenedor-item-lista p {
-  width: 80%;
-  margin: 5px;
-  padding: 5px;
-  text-align: justify;
+    width: 80%;
+    margin: 5px;
+    padding: 5px;
+    text-align: justify;
 }
 
 
@@ -442,12 +455,12 @@ hr {
 ****/
 
 .contenedor-fila-lista a {
-  text-decoration: none;
-  color: black;
-  margin-right: 15px;
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 2px;
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 
@@ -457,15 +470,15 @@ hr {
 ***/
 
 @media screen and (max-width: 800px) {
-  /****
+    /****
 Estilos de los controles del formulario.
 * -------------------------------------
 ****/
-  form label,
-  form input,
-  form select {
-    width: 100%;
-  }
+    form label,
+    form input,
+    form select {
+        width: 100%;
+    }
 }
 
 
@@ -475,30 +488,30 @@ Estilos de los controles del formulario.
 ***/
 
 @media screen and (max-width: 600px) {
-  /****
+    /****
   Estilos de los controles del formulario.
   * -------------------------------------
   ****/
-  form label,
-  form input,
-  form select {
-    width: 100%;
-  }
-  /****
+    form label,
+    form input,
+    form select {
+        width: 100%;
+    }
+    /****
 * Estilos para el enlace del mensaje de datos correctos.
 * -----------------------------------------------------
 ****/
-  .contenedor-datos-correctos a {
-    width: 90%;
-    margin-top: 30px;
-  }
-  /****
+    .contenedor-datos-correctos a {
+        width: 90%;
+        margin-top: 30px;
+    }
+    /****
   * Estilo de la imagen de mensaje de datos correctos.
   * ----------------------------------------------------
   ****/
-  .contenedor-datos-correctos img {
-    width: 180px;
-    height: 100px;
-    ;
-  }
+    .contenedor-datos-correctos img {
+        width: 180px;
+        height: 100px;
+        ;
+    }
 }

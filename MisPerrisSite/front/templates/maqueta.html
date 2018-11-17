@@ -38,13 +38,6 @@
                         <a href="{% url 'iniciarSesion' %}">Iniciar sesión</a> 
                     {% else %}
                         <!-- El usuario esta logeado, verificar el tipo de usuario. -->
-                        {% if request.user.is_superuser %}
-                            <!-- Es administrador. -->
-                            <a href="{% url 'mantenedorRescatados' %}">Mantenedor rescatados</a> 
-                        {% else %}
-                            <!-- Es un usuario normal. -->
-                            <a href="{% url 'listaRescatados' %}">Rescatados disponibles</a> 
-                        {% endif %}
                         <a href="{% url 'cerrarSesion' %}">Cerrar sesión</a> 
                     {% endif %}
 

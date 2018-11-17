@@ -26,21 +26,18 @@
                 Ingrese nombre de usuario y contraseña para acceder al perfil.<br>
                 Puede iniciar sesión con su red social favorita pinchando el enlace correspondiente.
             </p>
-            <form method="post">
+             <form method="post">
                 {% csrf_token %}
-                {% if form.non.field.errors %}
-                    {{ form.non.field.errors }}
-                {% endif %}
-                {% for field in form.visible_fields %}
-                    <div class="contenedor-campo">
-                        {{ field.label_tag }}
-                        {{ field }}
-                        {{ field.errors }}
-                        {{ field.help_text|safe }}
-                    </div>
-                {% endfor %}
-                <button class="boton" type="submit">Ingresar</button>
-            </form>
+                     <div class="contenedor-campo">
+                         <label for="id_username">Nombre de Usuario:</label>
+                         <input type="text" name="username" required id="id_username">
+                     </div>
+                     <div class="contenedor-campo">
+                         <label for="id_password">Contraseña:</label>
+                         <input type="password" name="password" required id="id_password">
+                     </div>
+                 <button class="boton" type="submit">Ingresar</button>
+             </form>
             <p>
             <a href="{% url 'social:begin' 'twitter' %}">Twitter</a><br>
             </p>

@@ -12,23 +12,24 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-print(BASE_DIR)
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'd*1^1t0hq$&opkdu@tn+h-s!8=jryc+^5ky*vu_y$!jzhv(-m)'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
-# Application definition
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,10 +42,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'social_django',
     'api.apps.ApiConfig',
-    'front.apps.FrontConfig',
-    'login.apps.LoginConfig',
+    # 'front.sitio.apps.SitioConfig',
+    # front.login.apps.LoginConfig',
 ]
 
+
+# Definicion de los middleware.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -64,10 +67,15 @@ ROOT_URLCONF = 'MisPerrisSite.urls'
 
 
 # Rutas de las templates.
+print(os.path.join(BASE_DIR, 'front', 'templates'))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'front', 'templates'),
+            os.path.join(BASE_DIR, 'front/sitio/templates'),
+            os.path.join(BASE_DIR, 'front/login/templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +93,7 @@ TEMPLATES = [
 ]
 
 
+# ---
 WSGI_APPLICATION = 'MisPerrisSite.wsgi.application'
 
 
@@ -130,18 +139,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
-
 LANGUAGE_CODE = 'es-es'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
@@ -149,7 +155,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #STATIC_ROOT = BASE_DIR + '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'front', 'static'),
 ]
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

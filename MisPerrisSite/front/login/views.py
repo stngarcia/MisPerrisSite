@@ -18,7 +18,10 @@ def iniciarSesion(request):
             username=data.get("username"), password=data.get("password"))
         if user is not None:
             login(request, user)
-            return redirect('inicio')
+            return redirect('irInicio')
+        else:
+            miPlantilla = loader.get_template("errorAcceso.html")
+            return HttpResponse(miPlantilla.render({}, request))
     return render(request, "iniciarSesion.html", {'form': form})
 
 

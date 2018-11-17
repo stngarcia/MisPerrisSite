@@ -7,10 +7,10 @@ from django.template import loader, RequestContext
 
 
 def irInicio(request):
-    miPlantilla = loader.get_template("inicio/index.html")
+    miPlantilla = loader.get_template("index.html")
     return HttpResponse(miPlantilla.render({}, request))
 
 
 def registrarPersona(request):
-    miPlantilla = loader.get_template("inicio/index.html")
+    miPlantilla = loader.get_template("index.html")
     return HttpResponse(miPlantilla.render({}, request))
