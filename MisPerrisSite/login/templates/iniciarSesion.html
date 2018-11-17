@@ -40,8 +40,11 @@
                     </div>
                 {% endfor %}
                 <button class="boton" type="submit">Ingresar</button>
-                <a href="{% url 'password_reset' %}">Olvide mi contraseña</a>
             </form>
+            <p>
+            <a href="{% url 'social:begin' 'twitter' %}">Twitter</a><br>
+            </p>
+
         </div>
     </section>
     {% endblock %}

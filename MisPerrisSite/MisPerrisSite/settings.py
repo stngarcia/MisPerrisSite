@@ -58,8 +58,12 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
+
+# Ruta para las urls.
 ROOT_URLCONF = 'MisPerrisSite.urls'
 
+
+# Rutas de las templates.
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -80,7 +84,9 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'MisPerrisSite.wsgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
