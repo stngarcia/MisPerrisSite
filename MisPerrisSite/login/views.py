@@ -6,11 +6,11 @@ from django.template import loader, RequestContext
 # Create your views here.
 
 
-def irInicio(request):
+def iniciarSesion(request):
     miPlantilla = loader.get_template("inicio/index.html")
     return HttpResponse(miPlantilla.render({}, request))
 
 
-def registrarPersona(request):
+def cerrarSesion(request):
     miPlantilla = loader.get_template("inicio/index.html")
     return HttpResponse(miPlantilla.render({}, request))

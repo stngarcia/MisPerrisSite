@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
+print(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -39,8 +39,10 @@ INSTALLED_APPS = [
 
     # Aplicaciones del sitio de Mis Perris.
     'rest_framework',
+    'social_django',
     'api.apps.ApiConfig',
     'front.apps.FrontConfig',
+    'login.apps.LoginConfig',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Midleware para la autentificacion con redes sociales.
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'MisPerrisSite.urls'
@@ -66,6 +71,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Contextos para conexion con redes sociales.
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -82,6 +91,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'MisPerris.sqlite3'),
     }
 }
+
+
+# Agregando los backend para conexion con redes sociales.
+AUTHENTICATION_BACKENDS = (
+    # 'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    # 'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -122,10 +141,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = BASE_DIR + '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
 
 # rutas para la carpeta media.
 MEDIA_URL = '/media/'
-#MEDIA_ROOT = BASE_DIR + '/media/'
+MEDIA_ROOT = BASE_DIR + '/media/'
+
 
 # Datos para el envio de correos.
 EMAIL_USE_TLS = True
@@ -133,3 +162,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'stngarcia8@gmail.com'
 EMAIL_HOST_PASSWORD = 'hrgptbwpnbfnjmxw'
+
+
+# Informacion de conexion con redes sociales.
+# twitter.
+SOCIAL_AUTH_TWITTER_KEY = ''
+SOCIAL_AUTH_TWITTER_SECRET = ''
