@@ -7,11 +7,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
 
-
+# iniciarSesion: Vista para el inicio de sesion.
 def iniciarSesion(request):
-    form = IniciarSesionForm(request.POST or None)
+    form = IniciarSesionForm(request.POST)
     if form.is_valid():
         data = form.cleaned_data
         user = authenticate(
@@ -20,8 +19,7 @@ def iniciarSesion(request):
             login(request, user)
             return redirect('irInicio')
         else:
-            miPlantilla = loader.get_template("errorAcceso.html")
-            return HttpResponse(miPlantilla.render({}, request))
+            return redirect('denegarAcceso')
     return render(request, "iniciarSesion.html", {'form': form})
 
 
@@ -31,3 +29,9 @@ def iniciarSesion(request):
 def cerrarSesion(request):
     logout(request)
     return redirect('/')
+
+
+# denegarAcceso: Vista para carga la plantilla que indica error de login.
+def denegarAcceso(request):
+    miPlantilla = loader.get_template("denegarAcceso.html")
+    return HttpResponse(miPlantilla.render({}, request))
