@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^iniciarSesion/$', views.iniciarSesion, name='iniciarSesion' ),
     url(r'^cerrarSesion/$', views.cerrarSesion, name='cerrarSesion' ),
     url(r'^denegarAcceso/$', views.denegarAcceso, name='denegarAcceso' ),
+    url(r'^restringirAcceso/$', views.restringirAcceso, name='restringirAcceso' ),
     url('social/', include('social_django.urls', namespace='social')),
 ]

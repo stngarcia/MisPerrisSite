@@ -108,6 +108,7 @@ DATABASES = {
 # Agregando los backend para conexion con redes sociales.
 AUTHENTICATION_BACKENDS = (
     # 'social_core.backends.github.GithubOAuth2',
+    'social_auth.backends.contrib.instagram.InstagramBackend',
     'social_core.backends.twitter.TwitterOAuth',
     # 'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
@@ -166,3 +167,9 @@ MEDIA_ROOT = BASE_DIR + '/media/'
 # twitter.
 SOCIAL_AUTH_TWITTER_KEY = ''
 SOCIAL_AUTH_TWITTER_SECRET = ''
+
+
+# instagram.
+INSTAGRAM_CLIENT_ID = ''
+INSTAGRAM_CLIENT_SECRET = ''
+INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'likes comments relationships'}

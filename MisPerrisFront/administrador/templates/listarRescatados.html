@@ -1,0 +1,32 @@
+{% extends 'maqueta.html' %} {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        {% block titleHead %}
+            <title>Fundación Mis Perris: Administrador - Lista de rescatados.</title>title>
+        {% endblock %}
+        {% block cssHead %}
+            <link rel="stylesheet" href="{% static 'css/normal.css' %}">
+        {% endblock %}
+        {% block jsHead %}
+            <script src="{% static 'js/jquery/jquery.js' %}"></script>
+        {% endblock %}
+    </head>
+
+    <body>
+        <!-- Contenido de la pagina -->
+        {% block contenido %}
+            <section>
+                <a class="enlace-agregar" href="{% url 'nuevoRescatado' %}">Agregar nueva mascota</a>
+                <div id="contenedorForm" class="contenedor-formulario">
+
+                </div>
+            </section>
+        {% endblock %}
+            <script src="{% static 'js/form/funciones.js' %}"></script>
+        {% block jsBody %}
+        {% endblock %}
+    </body>
+
+</html>
