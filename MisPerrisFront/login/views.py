@@ -9,8 +9,6 @@ from django.contrib.auth.decorators import login_required
 
 
 # iniciarSesion: Vista para el inicio de sesion.
-
-
 def iniciarSesion(request):
     form = IniciarSesionForm(request.POST)
     if form.is_valid():
@@ -39,7 +37,7 @@ def denegarAcceso(request):
     return HttpResponse(miPlantilla.render({}, request))
 
 
-# restringirAcceso: Vista para carga la plantilla que indica error de login.
+# restringirAcceso: Vista para cargar ls plantilla de acceso restringido.
 def restringirAcceso(request):
     miPlantilla = loader.get_template("restringirAcceso.html")
     return HttpResponse(miPlantilla.render({}, request))

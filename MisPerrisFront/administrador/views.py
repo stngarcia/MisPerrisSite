@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render, render_to_response, get_object_or
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader, RequestContext
 from django.db.models import Q
-from .forms import nuevoRescatadoForm
+#from .forms import nuevoRescatadoForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
@@ -15,3 +15,7 @@ def listarRescatados(request):
         return redirect('restringirAcceso')
     miPlantilla = loader.get_template("listarRescatados.html")
     return HttpResponse(miPlantilla.render({}, request))
+
+
+def ingresarRescatado(request):
+    pass

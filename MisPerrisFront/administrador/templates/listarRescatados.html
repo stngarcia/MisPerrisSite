@@ -18,14 +18,15 @@
         <!-- Contenido de la pagina -->
         {% block contenido %}
             <section>
-                <a class="enlace-agregar" href="{% url 'nuevoRescatado' %}">Agregar nueva mascota</a>
+                <a class="enlace-agregar" href="{% url 'ingresarRescatado' %}">Agregar nueva mascota</a>
                 <div id="contenedorForm" class="contenedor-formulario">
-
+                    <!-- Contenido de los rescatados cargados por jQuery -->
                 </div>
             </section>
         {% endblock %}
-            <script src="{% static 'js/form/funciones.js' %}"></script>
         {% block jsBody %}
+            <script src="{% static 'js/erroresAjax.js' %}"></script>
+            <script src="{% static 'js/listados/rescatados.js' %}"></script>
         {% endblock %}
     </body>
 

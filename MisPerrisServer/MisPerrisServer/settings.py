@@ -26,6 +26,7 @@ SECRET_KEY = '2ku4$#wocs7a532(+zhl6k&$8y+7@z5ix167++!dc6uw^-qqrg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -38,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Modulo que permite compartir informacion entre dominios.
+    'corsheaders',
+
     # Aplicaciones del sitio de Mis Perris.
     'rest_framework',
     'api.apps.ApiConfig',
@@ -48,12 +52,18 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    # middleware que permite compartir informacion entre dominios.
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# variable que permite todas las conexiones al servidor.
+CORS_ORIGIN_ALLOW_ALL=True
 
 
 # Ruta de las urls.

@@ -11,13 +11,20 @@
 $(document).ready(function() {
     $.ajax({
         url: "http://localhost:8001/api/v1/mascotas",
-        success: function(result) {
-            $("#listaViviendas").append("viviendas");
-            $.each(result, function(i, items) {
-                $("#listaViviendas").append('<br>');
-                $("#listaViviendas").append(result[i].calle + " " + result[i].numero);
-                $("#listaViviendas").append('<br>');
-            });
-        }
+        type: "GET",
+        dataType: "json",
+        crossDomain : true,
+        success: function(resultados) { listarRescatados(resultados) }
     });
-})
+});
+
+
+
+function listarRescatados(datos) {
+    $("#contenedorForm").empty();
+    $("#contenedorForm").append('<h1>Lista de rescatados.</h1>');
+    $("#contenedorForm").append('<hr>');
+    if (datos.length == 0) {
+        $("#contenedorForm").append('<p>No hay perritos ingresados, pulse el enlace [Agregar nueva mascota].</p>');
+    }
+};

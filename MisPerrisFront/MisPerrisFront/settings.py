@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Aplicaciones del sitio de Mis Perris.
-    'social_django',
     'sitio.apps.SitioConfig',
     'login.apps.LoginConfig',
 ]
@@ -57,10 +56,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    # Midleware para la autentificacion con redes sociales.
-    'social_django.middleware.SocialAuthExceptionMiddleware',
-
 ]
 
 
@@ -75,7 +70,8 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'sitio/templates'),
-            os.path.join(BASE_DIR, 'login/templates')
+            os.path.join(BASE_DIR, 'login/templates'),
+            os.path.join(BASE_DIR, 'administrador/templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -103,16 +99,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'MisPerrisFront.sqlite3'),
     }
 }
-
-
-# Agregando los backend para conexion con redes sociales.
-AUTHENTICATION_BACKENDS = (
-    # 'social_core.backends.github.GithubOAuth2',
-    'social_auth.backends.contrib.instagram.InstagramBackend',
-    'social_core.backends.twitter.TwitterOAuth',
-    # 'social_core.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 
 # Password validation
@@ -163,13 +149,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR + '/media/'
 
 
-# Informacion de conexion con redes sociales.
-# twitter.
-SOCIAL_AUTH_TWITTER_KEY = ''
-SOCIAL_AUTH_TWITTER_SECRET = ''
-
-
-# instagram.
-INSTAGRAM_CLIENT_ID = ''
-INSTAGRAM_CLIENT_SECRET = ''
-INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'likes comments relationships'}

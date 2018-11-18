@@ -1,0 +1,25 @@
+Requerimientos para el servidor de mis perris:
+1. instalar la librería "django-cors-headers"
+comando: pip install django-cors-headers
+
+Esto permite que la transferencia de datos entre la aplicacion cliente (MisPerrisFront) pueda consumir los datos desde el servidor (MisPerrisServer) sin notificar el error "Cross domain...".
+Esto lo realiza permitiendo las conexiones entre el servidor y el cliente de manera transparente, cuando una aplicacion esta trabajando en el mismo servidor, por ejemplo: localhost:8000, no es requerido que exista un validador de sitios cruzados ya que estan corriendo en el mismo servidor y las peticiones son validadas correctamente por el servidor, pero si necesitamos conectar aplicación cliente (localhost:8000) y aplicación servidor (localhost:8001), se requiere este tipo de validación.
+Para el ejercicio es necesaria esta librería, de lo contrario esto no funcionará.
+Las configuraciones aplicadas se encuentran comentadas en el archivo settings.py del proyecto MisPerrisServer.
+Referencia: https://github.com/ottoyiu/django-cors-headers
+
+
+Correr el servidor:
+El servidor de datos de MisPerris debe correr en el puerto 8001, dentro de la carpeta MisPerrisServer, ejecutar:
+python manage.py runserver 8001
+
+
+Correr el cliente:
+La aplicación de MisPerris debe correr en el puerto 8000, ubicado dentro de la carpeta MisPerrisFront, ejecutar:
+python manage.py runserver
+
+
+Observación importante:
+Si el servidor se ejecuta en otro puerto el cliente no lo detectara, hasta el momento no puedo encontrar la forma de guardar la direccion del servidor y traspasarla al cliente para que la reconozca automaticamente.
+
+
