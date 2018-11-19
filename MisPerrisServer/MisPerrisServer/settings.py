@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 # variable que permite todas las conexiones al servidor.
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Ruta de las urls.
@@ -136,9 +136,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+# Carpeta de imagenes.
+MEDIA_URL = 'http://localhost:8001/media/'
+MEDIA_ROOT = BASE_DIR + '/media'
+#MEDIA_ROOT = 'http://localhost:8001/media'
+
+
 # Datos para el envio de correos.
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'stngarcia8@gmail.com'
-EMAIL_HOST_PASSWORD = 'hrgptbwpnbfnjmxw'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''

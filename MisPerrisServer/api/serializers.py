@@ -1,12 +1,21 @@
 from rest_framework import serializers
 from .models import Mascota, Persona, Adopcion
+from django.conf import settings
 
 
 # Serializador para el modelo Mascota.
 class MascotaSerializer(serializers.ModelSerializer):
+
+    # para obtener la ruta de la imagen.
+    ruta_imagen = serializers.SerializerMethodField()
     class Meta:
         model = Mascota
-        fields = ('id', 'nombre', 'raza', 'estado', 'descripcion')
+        fields = ('id', 'nombre', 'raza', 'estado',
+                  'descripcion', 'ruta_imagen')
+    # para encodear la ruta de la imagen.
+    def get_ruta_imagen(self, object):
+        return '%s/%s' % (settings.MEDIA_ROOT.replace('\\', '/'), object.imagen.name)
+
 
 
 # Serializador para el modelo Persona.
