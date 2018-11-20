@@ -13,7 +13,7 @@ $(document).ready(function() {
         url: "http://localhost:8001/api/v1/mascotas",
         type: "GET",
         dataType: "json",
-        crossDomain : true,
+        crossDomain: true,
         success: function(resultados) { listarRescatados(resultados) }
     });
 });
@@ -25,28 +25,39 @@ function listarRescatados(datos) {
     $("#contenedorForm").append('<h1>Lista de rescatados.</h1>');
     $("#contenedorForm").append('<hr>');
     if (datos.length == 0) {
-        $("#contenedorForm").append('<p>No hay perritos ingresados, pulse el enlace [Agregar nueva mascota].</p>');
+        $("#contenedorForm").append('<p>No hay perritos ingresados.</p>');
         return;
     }
     // Construyendo el espacio de la lista de perritos.
     $.each(datos, function(i, items) {
+        var idFila = 'fila' + datos[i].id + '_' + datos[i].nombre;
+        var idItem = 'item' + datos[i].id + '_' + datos[i].nombre;
+        var idTexto = 'texto' + datos[i].id + '_' + datos[i].nombre;
         //contenedor de la fila del item
-        $("#contenedorForm").append('<div id="contenedorFila" class="contenedor-fila-lista">');
+        $("#contenedorForm").append('<div id="' + idFila + '" class="contenedor-fila-lista">');
+        idFila='#'+idFila;
         // Contenedor par el perrito en curso.
-        $("#contenedorFila").append('<div id="contenedorItem" class="contenedor-item-lista">');
+        $(idFila).append('<div id="'+ idItem+'" class="contenedor-item-lista">');
+        idItem= '#' + idItem;
         // colocando la imagen.
-        $("#contenedorItem").append('<img src="' + datos[i].ruta_imagen + '" alt="Imagen de ' + datos[i].nombre + '">');
+        var idImg = datos[i].id + '_' + datos[i].nombre;
+        $(idItem).append('<img id="' + idImg + '"src="" alt="">');
+        idImg='#'+ idImg;
+        $(idImg).attr('src',  datos[i].ruta_imagen);
+        $(idImg).attr('alt', 'Imagen de ' + datos[i].nombre);
+
         // Colocando los datos del perrito.
-        $("#contenedorItem").append('<p id="texto">');
-        $("#texto").append('<h5>Nombre: ' + datos[i].nombre + '</h5><br>' );
-        $("#texto").append('Raza: ' + datos[i].raza+ '<br>' );
-        if (datos[i].estado =='r') $("#texto").append('Estado: Rescatado<br>');
-        if (datos[i].estado =='d') $("#texto").append('Estado: Disponible<br>');
-        if (datos[i].estado =='a') $("#texto").append('Estado: Adoptado<br>');
-        $("#texto").append('Descripción: ' + datos[i].descripcion+ '<br>' );
+        $(idItem).append('<p id="' + idTexto+'">');
+        idTexto='#'+ idTexto;
+        $(idTexto).append('<h5>Nombre: ' + datos[i].nombre + '</h5><br>');
+        $(idTexto).append('Raza: ' + datos[i].raza + '<br>');
+        if (datos[i].estado == 'r') $(idTexto).append('Estado: Rescatado<br>');
+        if (datos[i].estado == 'd') $(idTexto).append('Estado: Disponible<br>');
+        if (datos[i].estado == 'a') $(idTexto).append('Estado: Adoptado<br>');
+        $(idTexto).append('Descripción: ' + datos[i].descripcion + '<br>');
         // Cerrando los contenedores de parrafos y los divs.
-        $("#contenedorItem").append('</p>');
-        $("#contenedorFila").append('</div>');
+        $(idItem).append('</p>');
+        $(idFila).append('</div>');
         $("#contenedorForm").append('</div>');
     });
 };

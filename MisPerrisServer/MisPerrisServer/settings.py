@@ -133,12 +133,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_URL = '/static/'
+STATIC_URL = 'http://localhost:8001/static/'
 
 
 # Carpeta de imagenes.
-MEDIA_URL = 'http://localhost:8001/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR + '/media'
+#MEDIA_URL = 'http://127.0.0.1:8001/media/'
 #MEDIA_ROOT = 'http://localhost:8001/media'
 
 

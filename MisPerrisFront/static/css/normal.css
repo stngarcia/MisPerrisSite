@@ -426,8 +426,8 @@ hr {
 ****/
 
 .contenedor-item-lista img {
-    width: 50px;
-    max-width: 50px;
+    width: 75px;
+    max-width: 75px;
     height: 75px;
     max-height: 75px;
     border: 1px solid black;

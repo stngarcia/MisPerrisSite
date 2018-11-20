@@ -14,7 +14,7 @@ class MascotaSerializer(serializers.ModelSerializer):
                   'descripcion', 'ruta_imagen')
     # para encodear la ruta de la imagen.
     def get_ruta_imagen(self, object):
-        return '%s/%s' % (settings.MEDIA_ROOT.replace('\\', '/'), object.imagen.name)
+        return '%s%s' % (settings.MEDIA_URL.replace('\\', '/'), object.imagen.name)
 
 
 
