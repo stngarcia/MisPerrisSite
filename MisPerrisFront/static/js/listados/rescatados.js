@@ -33,6 +33,8 @@ function listarRescatados(datos) {
         var idFila = 'fila' + datos[i].id + '_' + datos[i].nombre;
         var idItem = 'item' + datos[i].id + '_' + datos[i].nombre;
         var idTexto = 'texto' + datos[i].id + '_' + datos[i].nombre;
+        var idEnlaces = 'enlace' + datos[i].id + '_' + datos[i].nombre;
+        var idBoton = 'btn' + datos[i].id + '_' + datos[i].nombre;
         //contenedor de la fila del item
         $("#contenedorForm").append('<div id="' + idFila + '" class="contenedor-fila-lista">');
         idFila='#'+idFila;
@@ -56,8 +58,15 @@ function listarRescatados(datos) {
         if (datos[i].estado == 'a') $(idTexto).append('Estado: Adoptado<br>');
         $(idTexto).append('Descripción: ' + datos[i].descripcion + '<br>');
         // Cerrando los contenedores de parrafos y los divs.
-        $(idItem).append('</p>');
+        $(idItem).append('</p><br>');
         $(idFila).append('</div>');
+        $(idFila).append('<p id="'+ idEnlaces +'">');
+        idEnlaces='#'+idEnlaces;
+        $(idEnlaces).append('<button id="'+ idBoton  + '" value="' + datos[i].id + '">Ver</button>');
+        $(idFila).append('</p>');
+
+
+        // Colocar el enlace para visualizar datos de las mascota.
         $("#contenedorForm").append('</div>');
     });
 };

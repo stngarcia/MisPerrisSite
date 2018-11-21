@@ -2,15 +2,23 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .funciones import getMascotasSerializer, getPersonasSerializer, getAdopcionesSerializer
+from .funciones import getMascotasSerializer, getMascotaByIdSerializer, getPersonasSerializer, getAdopcionesSerializer
 
 
-# Vista para mostrar las mascotas.
+# Vista para mostrar todas las mascotas.
 class MascotaView(APIView):
 
     # Metodo para obtener las mascotas.
     def get(self, request):
         return Response(getMascotasSerializer(None))
+
+
+# Vista para mostrar una mascota por su identificador.
+class MascotaViewById(APIView):
+
+    # Metodo para obtener la mascota.
+    def get(self, request, pk):
+        return Response(getMascotaByIdSerializer(pk))
 
 
 # Vista para mostrar las personas.
@@ -27,4 +35,3 @@ class AdopcionView(APIView):
     # Obtener las adopciones.
     def get(self, request):
         return Response(getAdopcionesSerializer(None))
-
