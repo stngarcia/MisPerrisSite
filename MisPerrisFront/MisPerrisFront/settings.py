@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Aplicaciones del sitio de Mis Perris.
     'sitio.apps.SitioConfig',
     'login.apps.LoginConfig',
+    'usuario.apps.UsuarioConfig',
 ]
 
 

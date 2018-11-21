@@ -4,15 +4,13 @@
 
 <head>
     {% block titleHead %}
-    <title>Fundación Mis Perris: Página de inicio.</title>
+        <title>Fundación Mis Perris: Página de inicio.</title>
     {% endblock %}
-    <!-- pagina de estilos css -->
     {% block cssHead %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock %}
-    <!-- script de la pagina. -->
     {% block jsHead %}
-    <script src="{% static 'js/jquery/jquery.js' %}"></script>
-    <script src="{% static 'js/slider/jquery.bxslider.min.js' %}"></script>
+        <script src="{% static 'js/jquery/jquery.js' %}"></script>
+        <script src="{% static 'js/slider/jquery.bxslider.min.js' %}"></script>
     {% endblock %}
 </head>
 
@@ -80,11 +78,9 @@
     </section>
     {% endblock %}
 
-    <!-- Script de la pagina. -->
     {% block jsBody %}
-    <script src="{% static 'js/slider/slider.js' %}"></script>
+        <script src="{% static 'js/slider/slider.js' %}"></script>
     {% endblock %}
-
 </body>
 
 </html>

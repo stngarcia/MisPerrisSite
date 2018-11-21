@@ -39,12 +39,14 @@
                     {% else %}
                         <!-- El usuario esta logeado, verificar el tipo de usuario. -->
                         {% if request.user.is_superuser %}
+                        <!-- Administrador -->
                             <a href="{% url 'listarRescatados' %}">Mantenedor rescatados</a> 
                         {% else %}
+                        <!-- Usuario registrado -->
+                            <a href="{% url 'listarDisponibles' %}">Ver mascotas disponibles</a> 
                         {% endif %}
                         <a href="{% url 'cerrarSesion' %}">Cerrar sesión</a> 
                     {% endif %}
-
             </nav>
 
             <!-- Bloque para  el slider -->
@@ -77,8 +79,7 @@
                     Bienvenido: {{ request.user.username|capfirst}} {{ request.user.last_name|capfirst }}
                 {% else %}
                     <!-- Es un usuario registrado. -->
-                    Bienvenido: 
-                    <a href="{% url 'infoPersona' nomUsuario=request.user.username %}">{{ request.user.first_name|capfirst}} {{ request.user.last_name|capfirst }}</a>
+                    Bienvenido: {{ request.user.first_name|capfirst}} {{ request.user.last_name|capfirst }}
                 {% endif %}
             {% else %}
             Bienvenido: Usuario anónimo.

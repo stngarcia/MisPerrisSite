@@ -1,5 +1,5 @@
 /****
- * Archivo: rescatados.js
+ * Archivo: disponibles.js
  * Caso de uso: Lista de perritos rescatados.
  * Alumno: Daniel Garcia.
  * ---------------------------------------------------------------------------------
@@ -8,12 +8,12 @@
 
 
 /****
- * Preparando el contenedor de los perritos rescatados.
+ * Preparando el contenedor de los perritos disponibles.
  ****/
 $(document).ready(function() {
     $("#contenedorForm").show();
     $("#contenedorMascota").hide();
-    miFiltro= rescatados + disponibles;
+    miFiltro = disponibles;
     var miUrl = miServidor + 'mascotaByStatus/' + miFiltro;
     cargarDatos(miUrl, true);
 });
@@ -29,9 +29,7 @@ function cargarDatos(miUrl, listarTodo) {
         dataType: "json",
         crossDomain: true,
         success: function(resultados) {
-            (listarTodo ? listarMascotas(resultados, 'rescatadas') : detalleMascota(resultados))
+            (listarTodo ? listarMascotas(resultados, 'disponibles') : detalleMascota(resultados))
         }
     });
 };
-
-
