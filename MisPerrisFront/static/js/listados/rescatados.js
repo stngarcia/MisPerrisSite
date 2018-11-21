@@ -5,68 +5,132 @@
  * ---------------------------------------------------------------------------------
  ****/
 
+
+
 /****
  * Preparando el contenedor de los perritos rescatados.
  ****/
 $(document).ready(function() {
-    $.ajax({
-        url: "http://localhost:8001/api/v1/mascotas",
-        type: "GET",
-        dataType: "json",
-        crossDomain: true,
-        success: function(resultados) { listarRescatados(resultados) }
-    });
+    $("#contenedorForm").show();
+    $("#contenedorMascota").hide();
+    cargarDatos(miServidor + 'mascotas', true);
 });
 
 
+/****
+ * Funcion para cargar los elementos desde la api de mascotas.
+ ****/
+function cargarDatos(miUrl, listarTodo) {
+    $.ajax({
+        url: miUrl,
+        type: "GET",
+        dataType: "json",
+        crossDomain: true,
+        success: function(resultados) {
+            (listarTodo ? listarMascotas(resultados) : detalleMascota(resultados))
+        }
+    });
+};
 
-function listarRescatados(datos) {
-    $("#contenedorForm").empty();
-    $("#contenedorForm").append('<h1>Lista de rescatados.</h1>');
-    $("#contenedorForm").append('<hr>');
+
+/****
+ * Funcion para cargar los perritos.
+ ****/
+function listarMascotas(datos) {
+    titulo('#contenedorForm', 'Lista de mascotas rescatadas.');
+    // Verificando que existan perritos para listar.
     if (datos.length == 0) {
         $("#contenedorForm").append('<p>No hay perritos ingresados.</p>');
         return;
     }
-    // Construyendo el espacio de la lista de perritos.
+    // listar los perritos disponibles.
     $.each(datos, function(i, items) {
-        var idFila = 'fila' + datos[i].id + '_' + datos[i].nombre;
-        var idItem = 'item' + datos[i].id + '_' + datos[i].nombre;
-        var idTexto = 'texto' + datos[i].id + '_' + datos[i].nombre;
-        var idEnlaces = 'enlace' + datos[i].id + '_' + datos[i].nombre;
-        var idBoton = 'btn' + datos[i].id + '_' + datos[i].nombre;
-        //contenedor de la fila del item
+        var idFila = 'fila_' + datos[i].id + datos[i].nombre;
+        var idItem = 'item_' + datos[i].id + datos[i].nombre;
         $("#contenedorForm").append('<div id="' + idFila + '" class="contenedor-fila-lista">');
-        idFila='#'+idFila;
-        // Contenedor par el perrito en curso.
-        $(idFila).append('<div id="'+ idItem+'" class="contenedor-item-lista">');
-        idItem= '#' + idItem;
-        // colocando la imagen.
-        var idImg = datos[i].id + '_' + datos[i].nombre;
-        $(idItem).append('<img id="' + idImg + '"src="" alt="">');
-        idImg='#'+ idImg;
-        $(idImg).attr('src',  datos[i].ruta_imagen);
-        $(idImg).attr('alt', 'Imagen de ' + datos[i].nombre);
-
-        // Colocando los datos del perrito.
-        $(idItem).append('<p id="' + idTexto+'">');
-        idTexto='#'+ idTexto;
-        $(idTexto).append('<h5>Nombre: ' + datos[i].nombre + '</h5><br>');
-        $(idTexto).append('Raza: ' + datos[i].raza + '<br>');
-        if (datos[i].estado == 'r') $(idTexto).append('Estado: Rescatado<br>');
-        if (datos[i].estado == 'd') $(idTexto).append('Estado: Disponible<br>');
-        if (datos[i].estado == 'a') $(idTexto).append('Estado: Adoptado<br>');
-        $(idTexto).append('Descripción: ' + datos[i].descripcion + '<br>');
-        // Cerrando los contenedores de parrafos y los divs.
-        $(idItem).append('</p><br>');
+        idFila = '#' + idFila;
+        $(idFila).append('<div id="' + idItem + '" class="contenedor-item-lista">');
+        idItem = '#' + idItem;
+        cargarImagen(idItem, datos[i]);
+        cargarTextos(idItem, datos[i]);
         $(idFila).append('</div>');
-        $(idFila).append('<p id="'+ idEnlaces +'">');
-        idEnlaces='#'+idEnlaces;
-        $(idEnlaces).append('<button id="'+ idBoton  + '" value="' + datos[i].id + '">Ver</button>');
-        $(idFila).append('</p>');
-
-
-        // Colocar el enlace para visualizar datos de las mascota.
+        cargarBotones(idFila, datos[i]);
         $("#contenedorForm").append('</div>');
     });
+};
+
+
+/****
+ * Titulos de los listados.
+ ****/
+function titulo(elemento, titulo){
+    $(elemento).empty();
+    $(elemento).append('<h1>' + titulo +'</h1>');
+    $(elemento).append('<hr>');
+};
+
+
+/****
+ * Funcion para cargacargar la imagen del perrito.
+ ****/
+function cargarImagen(elemento, mascota) {
+    $(elemento).append('<img src="' + mascota.ruta_imagen + '" alt="' + mascota.nombre + '">');
+};
+
+
+/****
+ * Funcion que carga el texto de la informacion de los perritos.
+ ****/
+function cargarTextos(elemento, mascota) {
+    var texto = 'Nombre: ' + mascota.nombre + '<br>';
+    texto += 'Raza: ' + mascota.raza + '<br>';
+    if (mascota.estado == 'r') texto += 'Estado: Rescatado<br>';
+    if (mascota.estado == 'd') texto += 'Estado: Disponible<br>';
+    if (mascota.estado == 'a') texto += 'Estado: Adoptado<br>';
+    texto += 'Descripción: ' + mascota.descripcion + '<br>';
+    $(elemento).append('<p>' + texto + '</p>');
+};
+
+
+
+/****
+ *  Funcion para cargar el boton de visualizacion del perrito.
+ ****/
+function cargarBotones(elemento, mascota) {
+    $(elemento).append('<button id="btn' + mascota.id + '" onclick="mostrarMascota(' + mascota.id + ')">Ver</button>')
+};
+
+
+/****
+ *  Funcion para mostrar la informacion del perrito seleccionado.
+ * Esta funcion es solicitada por el evento onClick de un boton.
+ ****/
+function mostrarMascota(id) {
+    cargarDatos(miServidor + 'mascotaById/' + id, false);
+};
+
+
+/****
+ *  Mostrando el detalle de la mascota.
+ * Esta funcion es solicitada en la llamada de ajax.
+ ****/
+function detalleMascota(mascota) {
+    $("#contenedorForm").hide();
+    $("#contenedorMascota").show();
+    titulo('#contenedorMascota', 'Información de mascota.');
+    $("#contenedorMascota").append('<img src="' + mascota.ruta_imagen + '" alt="' + mascota.nombre + '">');
+    var texto = mascota.nombre + ' es de raza ' + mascota.raza + ',<br>';
+    texto+= mascota.descripcion + '<br>';
+    $('#contenedorMascota').append('<p class="datos-mascota">' + texto +'</p>');
+    $("#contenedorMascota").append('<button onclick="volverListado()">Volver al listado de mascotas</button>')
+};
+
+
+/****
+ * Funcion para volver a mostrar la lista de perritos.
+ * Saliendo del modo mostrar detalle de mascota.
+ ****/
+function volverListado() {
+    $("#contenedorMascota").hide();
+    $("#contenedorForm").show();
 };

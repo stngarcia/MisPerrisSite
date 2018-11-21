@@ -1,11 +1,20 @@
 /****
- * Archivo: erroresAjax.js
- * Caso de uso: Configuración para los errores de las peticiones con la funcion .ajax de jQuery.
+ * Archivo: global.js.js
+ * Caso de uso: Contiene funciones y variables globales de Mis Perris.
  * Alumno: Daniel Garcia.
  * ---------------------------------------------------------------------------------
  ****/
 
 
+ /****
+ *  Variable que contiene la direccion del servidor donde consumir los datos.
+ ****/
+var miServidor = 'http://localhost:8001/api/v1/';
+
+
+/****
+ *  manejador  de  errores que las llamadas a la funcion .ajax pueda causar.
+ ****/
 $.ajaxSetup({
     error: function(jqXHR, textStatus, errorThrown) {
         if (jqXHR.status === 0) {

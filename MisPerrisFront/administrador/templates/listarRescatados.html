@@ -18,13 +18,18 @@
         <!-- Contenido de la pagina -->
         {% block contenido %}
             <section>
+
+            <! Contenedor de la lista de mascotas  -->
                 <div id="contenedorForm" class="contenedor-formulario">
-                    <!-- Contenido de los rescatados cargados por jQuery -->
+                </div>
+
+                <! Contenedor para mostrar los datos de la mascota -->
+                <div id="contenedorMascota" class="contenedor-ver-informacion">
                 </div>
             </section>
         {% endblock %}
         {% block jsBody %}
-            <script src="{% static 'js/erroresAjax.js' %}"></script>
+            <script src="{% static 'js/global.js' %}"></script>
             <script src="{% static 'js/listados/rescatados.js' %}"></script>
         {% endblock %}
     </body>
