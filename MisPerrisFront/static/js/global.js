@@ -6,10 +6,19 @@
  ****/
 
 
- /****
+/****
  *  Variable que contiene la direccion del servidor donde consumir los datos.
  ****/
 var miServidor = 'http://localhost:8001/api/v1/';
+
+
+/****
+ *  Definiendo los valores para los filtros.
+ ****/
+var todos = 8;
+var rescatados = 16;
+var disponibles = 32;
+var adoptados = 64;
 
 
 /****

@@ -13,7 +13,9 @@
 $(document).ready(function() {
     $("#contenedorForm").show();
     $("#contenedorMascota").hide();
-    cargarDatos(miServidor + 'mascotas', true);
+    miFiltro= adoptados+ rescatados;
+    var miUrl = miServidor + 'mascotaByStatus/' + miFiltro;
+    cargarDatos(miUrl, true);
 });
 
 

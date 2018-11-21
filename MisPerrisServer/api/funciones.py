@@ -22,6 +22,42 @@ def getMascotaByIdSerializer(pk):
     return miSerializador.data
 
 
+#  getMascotaByStatusSerializer: Retorna el objeto mascota serializado.
+# filtro: Filtro aplicado al resultado del serializador.
+# retorna La mascota serializada.
+def getMascotaByStatusSerializer(estado):
+    todos = int('00001000',2)
+    rescatados = int('00010000',2)
+    disponibles = int('00100000',2)
+    adoptados = int('01000000',2)
+    total =(todos + rescatados + disponibles + adoptados)
+    miOpcion = int(estado)
+    if (total & miOpcion) == 0:
+        # es un estado invalido, se devuelbe vacio.
+        miSerializador = MascotaSerializer({},many=True )
+        return miSerializador.data
+    if (miOpcion & todos) >0:
+        # Devolbiendo los perritos con cualquier estado.
+        miSerializador = MascotaSerializer(__getObjeto(Mascota, None), many=True)
+        return miSerializador.data
+    # Procesar los distintos filtros y sus combinaciones.
+    miFiltro = []
+    if (rescatados & miOpcion) > 0:
+        # perritos rescatados.
+        miFiltro.append('r')
+    if (disponibles & miOpcion) > 0:
+        # perritos disponibles.
+        miFiltro.append('d')
+    if (adoptados & miOpcion) > 0:
+        # perritos adoptados.
+        miFiltro.append('a')
+    miMascota = Mascota.objects.filter(estado__in=miFiltro)
+    miSerializador = MascotaSerializer(miMascota,many=True )
+    return miSerializador.data
+
+
+
+
 #  getPersonasSerializer: Retorna el serializador de las personas.
 # filtro: Filtro aplicado al resultado del serializador.
 # retorna los datos serializados y filtrados.

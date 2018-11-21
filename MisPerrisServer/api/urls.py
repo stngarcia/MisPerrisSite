@@ -9,6 +9,9 @@ urlpatterns = [
     url(r'^mascotaById/(?P<pk>\d+)/$',
         views.MascotaViewById.as_view(),
         name="mascotaById"),
+    url(r'^mascotaByStatus/(?P<estado>\d+)/$',
+        views.MascotaByStatusView.as_view(),
+        name="mascotaByStatus"),
 
     # Vistas para el tratamiento de las personas.
     url(r'^personas/$', views.PersonaView.as_view(), name='vistaPersonas'),
