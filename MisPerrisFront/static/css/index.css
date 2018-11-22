@@ -80,6 +80,20 @@
 
 
 /****
+* Estilo para el contenedor del formulario de filtros.
+* ---------------------------------------------------
+****/
+.contenedor-filtro {
+  margin:auto;
+  padding: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+/****
 * Estilo para el boton de la galeria de imagenes.
 * -----------------------------------------------
 ****/

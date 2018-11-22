@@ -74,12 +74,26 @@
             <button class="boton">Campañas</button>
         </div>
 
-
+        <!-- Galeria de imagenes de perritos -->
+        <div class="contenedor-galeria-mascotas">
+            <h1>GALERIA DE IMAGENES</h1>
+            <br><hr><br>
+            <form method="post" >
+                {% csrf_token %}
+                <p class="contenedor-filtro">
+                    {{ form }}
+                    <button id="filtrar" type="button">Filtrar</button>
+                </p>
+            </form>
+            <div id="contenedorGaleria" class="contenedor-galeria">
+            </div>
+        </div>
     </section>
     {% endblock %}
-
     {% block jsBody %}
         <script src="{% static 'js/slider/slider.js' %}"></script>
+        <script src="{% static 'js/global.js' %}"></script>
+        <script src="{% static 'js/listados/galeria.js' %}"></script>
     {% endblock %}
 </body>
 
