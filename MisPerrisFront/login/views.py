@@ -6,6 +6,7 @@ from .forms import IniciarSesionForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from social_django.models import UserSocialAuth
 
 
 # iniciarSesion: Vista para el inicio de sesion.
@@ -41,3 +42,16 @@ def denegarAcceso(request):
 def restringirAcceso(request):
     miPlantilla = loader.get_template("restringirAcceso.html")
     return HttpResponse(miPlantilla.render({}, request))
+
+
+def settings(request):
+    user = request.user
+    try:
+        github_login = user.social_auth.get(provider='github')
+    except UserSocialAuth.DoesNotExist:
+        github_login = None
+    can_disconnect = (user.social_auth.count() > 1 or user.has_usable_password())
+    return render(request, 'core/settings.html', {
+        'github_login': github_login,
+        'can_disconnect': can_disconnect
+    })

@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +27,7 @@ urlpatterns = [
     path('administrador/', include('administrador.urls')),
     path('usuario/', include('usuario.urls')),
     path('', include('sitio.urls')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 
 ]
 

@@ -335,7 +335,7 @@ hr {
     text-align: center;
     margin: 15px;
     padding: 5px;
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 
@@ -462,6 +462,26 @@ hr {
     padding: 5px;
     border: 1px solid black;
     border-radius: 2px;
+}
+
+
+/****
+* Estilos para los enlaces de autentificacion.
+* -------------------------------------------
+****/
+
+.autenticar {
+    margin: auto;
+}
+
+.autenticar a {
+    text-decoration: none;
+    color: black;
+}
+
+.autenticar img {
+    width:10px;
+    height: 10px;;
 }
 
 

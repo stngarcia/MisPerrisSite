@@ -39,6 +39,18 @@
                 {% endfor %}
                  <button class="boton" type="submit">Ingresar</button>
              </form>
+
+             <!-- Enlace para redes sociales. -->
+             <p>
+                También puede iniciar sesión con su cuenta de:<br><br>
+                <ul>
+                    <li>
+                        <p class="autenticar">
+                            <a href="{% url 'social:begin' 'github' %}">GitHub</a>
+                        </p>
+                    </li>
+                </ul>
+             </p>
         </div>
     </section>
     {% endblock %}

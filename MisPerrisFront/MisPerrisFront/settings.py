@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Conecciones a redes sociales.
+    'social_django',
+
     # Aplicaciones del sitio de Mis Perris.
     'sitio.apps.SitioConfig',
     'login.apps.LoginConfig',
@@ -57,6 +60,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Middleware para redes sociales.
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 
@@ -81,6 +87,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # Contextos para conexion con redes sociales.
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -100,6 +110,13 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'MisPerrisFront.sqlite3'),
     }
 }
+
+
+# Backend de autentificacion aredes sociales.
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Password validation
@@ -150,3 +167,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR + '/media'
 
 
+# Datos de conexion a redes sociales.
+SOCIAL_AUTH_GITHUB_KEY = ''
+SOCIAL_AUTH_GITHUB_SECRET = ''
+
+
+# Variables para redireccionamiento.
+LOGIN_URL = 'iniciarSesion'
+LOGIN_REDIRECT_URL = 'irInicio'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
