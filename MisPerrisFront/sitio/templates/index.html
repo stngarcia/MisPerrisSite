@@ -1,8 +1,15 @@
-{% extends 'maqueta.html' %} {% load staticfiles %}
+{% extends 'maqueta.html' %}
+{% block pwaCargar %}
+    {% load pwa %}
+{% endblock %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
+    {% block pwaHead %}
+        {% progressive_web_app_meta %}
+    {% endblock %}
     {% block titleHead %}
         <title>Fundación Mis Perris: Página de inicio.</title>
     {% endblock %}

@@ -28,6 +28,7 @@ urlpatterns = [
     path('usuario/', include('usuario.urls')),
     path('', include('sitio.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+    path('',include("pwa.urls")),
 
 ]
 

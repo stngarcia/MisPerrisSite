@@ -19,6 +19,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
+# Ruta para el service worker.
+PWA_SERVICE_WORKER_PATH = os.path.join(
+    BASE_DIR, 'static/js', 'serviceworker.js')
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -48,6 +53,7 @@ INSTALLED_APPS = [
     'sitio.apps.SitioConfig',
     'login.apps.LoginConfig',
     'usuario.apps.UsuarioConfig',
+    'pwa',
 ]
 
 
