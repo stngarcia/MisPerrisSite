@@ -18,3 +18,9 @@ def irInicio(request):
 def registrarPersona(request):
     miPlantilla = loader.get_template("index.html")
     return HttpResponse(miPlantilla.render({}, request))
+
+
+# sinConexion: Vista para cargar ls plantilla de trabajar sin conexion.
+def sinConexion(request):
+    miPlantilla = loader.get_template("trabajarSinConexion.html")
+    return HttpResponse(miPlantilla.render({}, request))

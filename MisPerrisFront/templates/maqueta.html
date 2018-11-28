@@ -1,13 +1,10 @@
-{% block pwaCargar %}
-{% endblock %}
-
+{% load pwa %}
 {% load pwa %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    {% block pwaHead %}
-    {% endblock %}
+    {% progressive_web_app_meta %}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% block titleHead %}
