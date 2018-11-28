@@ -174,8 +174,7 @@ MEDIA_ROOT = BASE_DIR + '/media'
 
 
 # Datos de conexion a redes sociales.
-SOCIAL_AUTH_GITHUB_KEY = '7df7414963be9053107c'
-SOCIAL_AUTH_GITHUB_SECRET = 'bcf66431a57f02589afed5650539741005bd269a'
+
 
 
 # Variables para redireccionamiento.
