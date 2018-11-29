@@ -19,7 +19,7 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('activate', event => {
-  var keepList = [CACHE_NAME];
+  var keepList = [staticCacheName];
 
   event.waitUntil(
       caches.keys().then(cacheNameList => {
