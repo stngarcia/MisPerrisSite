@@ -23,3 +23,14 @@ Observación importante:
 Si el servidor se ejecuta en otro puerto el cliente no lo detectara, hasta el momento no puedo encontrar la forma de guardar la direccion del servidor y traspasarla al cliente para que la reconozca automaticamente.
 
 
+
+Mis perris front:
+Aqui estan todos los archivos para mostrar la pagina, en la carpeta static se encuentra el archivo manifest, el service worker, dentro de la carpeta js ademas estan los script para hacer los listados con ajax, las aplicaciones separadas en administrador, usuario, login y sitio, cada una contiene los archivos correspondientes a su contexto, pero comparten los archivos de la carpeta static.
+
+
+Espero que pueda entender este jaleo.
+
+Saludos.
+
+
+

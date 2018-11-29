@@ -6,6 +6,8 @@
 <head>
     {% block titleHead %}
         <title>Fundación Mis Perris: Página de inicio.</title>
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
     {% endblock %}
     {% block cssHead %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock %}

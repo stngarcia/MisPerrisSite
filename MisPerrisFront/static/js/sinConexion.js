@@ -9,11 +9,10 @@
 /****
  * Preparando el contenedor de los perritos rescatados.
  ****/
-$(document).ready(function() {
-    if (!navigator.onLine) {
+window.onload = function() {
+    if (navigator.onLine) {
+        //console.log('Aqui estoy!');
+    } else {
         window.location.replace("http://localhost:8000/sinConexion/");
-        console.log('weeena estas desconectado');
-        return;
     }
-    console.log('Holis!');;
-});
+};

@@ -5,7 +5,9 @@
 
 <head>
     {% block titleHead %}
-    <title>Fundación Mis Perris: Acceso denegado.</title>
+        <title>Fundación Mis Perris: Acceso denegado.</title>
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
     {% endblock %}
     {% block cssHead %}
         <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 

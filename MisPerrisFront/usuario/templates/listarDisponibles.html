@@ -5,6 +5,8 @@
     <head>
         {% block titleHead %}
             <title>Fundación Mis Perris: Usuario - Lista de mascotas disponibles.</title>title>
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
         {% endblock %}
         {% block cssHead %}
             <link rel="stylesheet" href="{% static 'css/normal.css' %}">

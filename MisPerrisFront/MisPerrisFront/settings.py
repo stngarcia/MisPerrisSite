@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -175,7 +175,7 @@ MEDIA_ROOT = BASE_DIR + '/media'
 
 # Datos de conexion a redes sociales.
 SOCIAL_AUTH_GITHUB_KEY = '7df7414963be9053107c'
-SOCIAL_AUTH_GITHUB_SECRET = 'bcf66431a57f02589afed5650539741005bd269a'
+SOCIAL_AUTH_GITHUB_SECRET = '3b1e75f566bfc1cc25ad418c3ebe2cbcbd52fce0'
 
 
 # Variables para redireccionamiento.

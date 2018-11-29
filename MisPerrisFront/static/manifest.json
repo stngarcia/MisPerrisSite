@@ -1,7 +1,7 @@
 {
     "name": "Mis Perris",
     "short_name": "Mis Perris",
-    "description": "Sitio de la Fundación Mis Perris.",
+    "description": "Aplicacion de la Fundación Mis Perris.",
     "lang": "es",
     "icons": [{
             "src": "huella48.png",
@@ -36,8 +36,7 @@
     ],
     "start_url": "/",
     "background_color": "#6dccaa",
-    "orientation": "portrait",
-    "prefer_related_applications": false ",
     "theme_color": "#6dccaa",
+    "orientation": "portrait",
     "display": "standalone"
 }

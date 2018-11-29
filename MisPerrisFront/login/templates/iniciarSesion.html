@@ -6,14 +6,14 @@
 <head>
     {% block titleHead  %}
         <title>Fundación Mis Perris: Inicio de sesión</title>
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
     {% endblock %}
-    <!-- Enlazando paginas de estilos css -->
     {% block cssHead %}
         <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 
+
     {% endblock %}
-    {% block jsHead %}
-        <script src="{% static 'js/sinConexion.js' %}"></script>
-    {% endblock %}
+
 
 </head>
 
@@ -56,6 +56,9 @@
              </p>
         </div>
     </section>
+    {% endblock %}
+    {% block jsBody %}
+        <script src="{% static 'js/sinConexion.js' %}"></script>
     {% endblock %}
 </body>
 
